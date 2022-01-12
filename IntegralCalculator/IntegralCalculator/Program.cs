@@ -3,6 +3,8 @@ using System.Linq.Expressions;
 using IntegralCalculator;
 using ParseFormula;
 
+
+
 static void Main(string[] args)
  {
      Console.OutputEncoding = System.Text.Encoding.UTF8;
@@ -23,7 +25,7 @@ static void Main(string[] args)
 
          var y = calc.CalculateIntegral(func);
 
-         Console.Write(
+         Console.WriteLine();
      }
      catch (Exception e)
      {

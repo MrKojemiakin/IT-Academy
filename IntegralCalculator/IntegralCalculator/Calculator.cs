@@ -49,6 +49,9 @@ namespace IntegralCalculator
 
         }
 
-
+        internal object CalculateIntegral(Func<double, double> func)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

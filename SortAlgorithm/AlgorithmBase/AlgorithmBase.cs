@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace Algorithm
 {
-    public class AlgorithmBase<T> where T : IComparable
+    public abstract class AlgorithmBase<T> where T : IComparable
     {
         public int SwopCount { get; protected set; } = 0;
         public int ComparisonCount { get; protected set; } = 0;
@@ -52,10 +52,7 @@ namespace Algorithm
             return timer.Elapsed;
         }
 
-        protected virtual void MakeSort()
-        {
-            Items.Sort();
-        }
+        protected abstract void MakeSort();
 
         protected int Compare(T a, T b)
         {

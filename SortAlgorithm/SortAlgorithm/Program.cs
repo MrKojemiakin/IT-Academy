@@ -10,37 +10,37 @@ namespace SortAlgorithm
         static void Main(string[] args)
         {
             var rnd = new Random();
-            var array = new double[(int)1e3];
+            var array = new double[(int) 1e3];
             for (int i = 0; i < array.Length; i++)
             {
 
-                array[i] = Math.Round(rnd.NextDouble() * 100,2);
+                array[i] = Math.Round(rnd.NextDouble() * 100, 2);
                 Console.Write($"  {array[i]}");
             }
+            DoSort(new BubbleSort<double>(array));
+            
+            DoSort(new QuickSort<double>(array));
 
-            var bubbleSort = new BubbleSort<double>(array);
-            var ellapsed= bubbleSort.Sort();
-            Console.WriteLine( );
-            foreach (var sortItem in bubbleSort.Items)
-            {
-                Console.WriteLine($"  {sortItem}");
-                
-            }
-            Console.WriteLine(ellapsed.Milliseconds);
+            
 
-            var quickSort = new QuickSort<double>(array);
-            ellapsed = quickSort.Sort();
-            Console.WriteLine();
-            foreach (var sortItem in quickSort.Items)
-            {
-                Console.WriteLine($"  {sortItem}");
-
-            }
-            Console.WriteLine(ellapsed.Milliseconds);
 
         }
 
-        
-        
+        private static void DoSort(AlgorithmBase<double> sorter)
+        {
+            //var quickSort = new QuickSort<double>(array);
+            var ellapsed = sorter.Sort();
+            Console.WriteLine();
+            foreach (var sortItem in sorter.Items)
+            {
+                Console.WriteLine($"  {sortItem}");
+
+            }
+
+            Console.WriteLine(ellapsed.Milliseconds);
+        }
+
+
+
     }
 }
